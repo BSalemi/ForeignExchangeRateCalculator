@@ -9,7 +9,17 @@ class ExchangeForm extends React.Component {
         amount: 0
     }
 
+
+    generateCurrencyOptions = (currencyNames) => {
+        const currencyOptions = currencyNames.map((name) => {
+            return <option onClick={e => this.setCurrencies(e)} value={name}> {name} </option>
+        })
+        return currencyOptions
+    }
+
     render(){
         return
     }
 }
+
+export default ExchangeForm 

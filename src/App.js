@@ -10,6 +10,10 @@ class App extends React.Component{
     returnRate: null
   }
 
+  componentDidMount(){
+    this.fetchCurrencyNames()
+  }
+
 
   fetchCurrencyNames = () => {
     fetch(BASE_URL)
@@ -26,6 +30,7 @@ class App extends React.Component{
     return(
       <div className="app">
         <h4>Foreign Exchange Rate Calculator</h4>
+        <ExchangeForm currencyNames={currencyNames}/>
       </div>
     )
   }
