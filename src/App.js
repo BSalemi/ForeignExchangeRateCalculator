@@ -28,12 +28,22 @@ class App extends React.Component{
     })
   }
 
+  setConvertedAmount = (amount, rate) => {
+    this.setState({
+      ...this.state,
+      convertedAmount: amount,
+      returnRate: rate
+    })
+  }
+  
   render(){
-    const {currencyNames} = this.state
+    const {currencyNames, convertedAmount, returnRate} = this.state
+    
     return(
-      <div className="app">
+      <div className="App">
         <h4>Foreign Exchange Rate Calculator</h4>
-        <ExchangeForm currencyNames={currencyNames}/>
+        <ExchangeForm currencyNames={currencyNames} setConvertedAmount={this.setConvertedAmount}/> 
+        <strong className="results">{convertedAmount && returnRate ? `${convertedAmount} ${returnRate}`: null}</strong>
       </div>
     )
   }
