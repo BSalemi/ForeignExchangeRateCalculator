@@ -1,6 +1,8 @@
 import React from 'react';
 import {BASE_URL} from './assets/constants.js'
 
+import ExchangeForm from './ExchangeForm.js'
+
 
 class App extends React.Component{
 
@@ -27,6 +29,7 @@ class App extends React.Component{
   }
 
   render(){
+    const {currencyNames} = this.state
     return(
       <div className="app">
         <h4>Foreign Exchange Rate Calculator</h4>
