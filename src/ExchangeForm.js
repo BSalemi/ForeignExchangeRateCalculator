@@ -1,5 +1,6 @@
 import React from 'react';
 import {EXCHANGE_URL} from './assets/constants.js'
+import swapIcon from './assets/swap.png'
 
 class ExchangeForm extends React.Component {
 
@@ -49,6 +50,17 @@ class ExchangeForm extends React.Component {
         }
     }
 
+    swapCurrencies = (e) => {
+        const {baseCurrency, returnCurrency} = this.state
+        e.preventDefault()
+        this.setState({
+            ...this.state,
+            baseCurrency: returnCurrency,
+            returnCurrency: baseCurrency
+        })
+        alert("Currencies swapped! Click 'Convert Amount'.")
+    }
+
     render(){
         const {currencyNames} = this.props
 
@@ -68,6 +80,7 @@ class ExchangeForm extends React.Component {
                     <button className="convertButton" onClick={e => this.calculateExchangeRate(e)} >
                         Convert Amount
                     </button>
+                    <img src={swapIcon} alt="swap currency button" className="swapButton" onClick={e => this.swapCurrencies(e)}/>
                 </div>
             </form>
         )

@@ -35,10 +35,10 @@ class App extends React.Component{
       returnRate: rate
     })
   }
-  
+
   render(){
     const {currencyNames, convertedAmount, returnRate} = this.state
-    
+
     return(
       <div className="App">
         <h4>Foreign Exchange Rate Calculator</h4>
